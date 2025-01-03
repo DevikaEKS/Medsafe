@@ -1,0 +1,93 @@
+Testimonial SCSS
+.testimonial-card {
+    margin: 0px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    background-color: aquamarine;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .testimonial-content {
+      font-size: 18px;
+      font-style: italic;
+      color: #555;
+      margin: 10px 0;
+
+    }
+    p {
+      margin-top: 10px;
+    }  
+  }
+  
+  .slick-dots {
+    bottom: 1px;
+    li button:before {
+      color: #0d868f; 
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+.testimonial-card {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .testimonial-content {
+      font-size: 18px;
+      font-style: italic;
+      color: #555;
+      margin: 10px 0;
+  
+      p {
+        margin-top: 10px;
+      }
+    }
+  
+    .client-info {
+      margin-top: 20px;
+      h4 {
+        font-size: 20px;
+        color: #333;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #777;
+      }
+    }
+  } 
+.slick-slide {
+    display: flex !important;
+    justify-content: center; 
+  }
+  
+
+
+
+
+
+
+
+
+
+
