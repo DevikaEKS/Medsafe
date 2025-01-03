@@ -17,6 +17,7 @@ import OurServices from './Our Services/OurServices';
 import Testimonial from './Testimonial/Testimonial';
 import Philosophy from './Philosophy/Philosophy';
 import Tablet from './Tablet/Tablet';
+import { Services } from './Services';
 function App() {
 
 
@@ -25,7 +26,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={ [<Contactpart/>,<Menubar/>,<Aboutpage/>,<OurServices/>,<Philosophy/>,<Testimonial/>,<Footer/>]}/>
-  <Route path='/tab' element={<Tablet/>}/>
+      <Route path='/services' element={<Services />}/>
+      <Route path='/tab' element={<Tablet/>}/>
     </Routes>
    
  
