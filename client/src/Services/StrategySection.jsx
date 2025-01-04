@@ -1,29 +1,44 @@
-import { strategyData } from '../utils/services/accordianData'
+import { strategyData } from '../utils/services/accordianData';
 
-console.log(strategyData)
+console.log(strategyData);
 
 const StrategySection = () => {
   return (
-    <div className='flex flex-col items-center justify-center pt-5 pb-10'>
-        <h1 className='font-oswald text-center font-semibold text-heading text-[28px]'>Oviya MedSafe has formed strong strategic alliances where we can provide
-        <br/>the following services:</h1>
-        <div className='w-9/12 flex flex-wrap justify-center items-center mt-10'>
-            {
-                strategyData.map((item) => (
-                    <div key={item.id} className='w-[280px] h-[283px] rounded-lg mr-16 bg-white shadow-lg flex flex-col items-center justify-center mt-10'>
-                        <div>
-                            <img src={item?.image_id} alt="service" className='' />
-                        </div>
-                        <p className='pt-7 font-dmsans font-bold'>{item.title}</p>
-                    </div>
-                ) )
-            }
-
-        </div>
+    <div className="d-flex flex-column align-items-center justify-content-center p-1 pt-5 pb-5">
+      <h1
+        className="text-center font-weight-bold mb-4 main-title text-lg"
+        style={{color: "var(--heading)" }}
+      >
+        Oviya MedSafe has formed strong strategic alliances where we can provide 
+        <br/> the following services:
+      </h1>
+      <div className="d-flex flex-wrap justify-content-center align-items-center w-75 mt-4">
+        {strategyData.map((item) => (
+          <div
+            key={item.id}
+            className="d-flex flex-column align-items-center justify-content-center bg-white shadow rounded p-3 m-3"
+            style={{
+              width: "280px",
+              height: "283px",
+            }}
+          >
+            <div>
+              <img src={item?.image_id} alt="service" className="img-fluid" />
+            </div>
+            <p
+              className="mt-3 text-center secondary-text"
+              style={{ fontWeight: "600"}}
+            >
+              {item.title}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div>
         
-        
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default StrategySection
+export default StrategySection;
