@@ -1,10 +1,13 @@
 import React from 'react'
-import DynamicServices from './services/DynamicServices'
-import AccordianSection from './services/AccordianSection'
-import StrategySection from './services/StrategySection';
+import DynamicServices from './Services/DynamicServices'
+import AccordianSection from './Services/AccordianSection'
+import StrategySection from './Services/StrategySection';
 import Contactpart from './Contactpart/Contactpart';
 import Menubar from './Menubar/Menubar';
 import Footer from './Footer/Footer';
+import DrugSafety from './Services/DrugSafety';
+import Pharmacovigilance from './Services/Pharmacovigilance';
+import Partnerships from './Services/Partnerships';
 
 export const Services = () => {
 
@@ -14,8 +17,7 @@ export const Services = () => {
     <div>
         <Contactpart />
         <Menubar />
-        <DynamicServices />
-        {id ===1 || id === 2 ? <AccordianSection />: <StrategySection />}
+        { id === 1 ? <DrugSafety /> : id === 2 ? <Pharmacovigilance /> : <Partnerships /> }
         <Footer />
     </div>
   )
