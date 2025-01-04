@@ -7,44 +7,7 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --gradientfrom: #17BE81;
-  --gradientto: #09BBCC;
-  --plus: #20BAD1;
-  --heading: #0D868F;
-}
-
-.p-36 {
-  padding: 144px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-/* padding for accordian text */
-.pt-01{
-  padding-top: 5px;
-}
-
-.accordion-container {
-  width: 708px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.img-size {
-  max-width: 419px;
-  max-height: 419px;
-}
-
-.main-title {
-  font-family: 'Oswald', sans-serif;
-}
-
-.main-text {
-  font-family: 'Heebo', sans-serif;
-}
-
-.secondary-text {
-  font-family: 'DM Sans', sans-serif;
+  -moz-osx-font-smoothing: grayscale
 }
 
 .text-lg {
@@ -100,6 +63,27 @@
   .text-lg{
     font-size: 23px;
   }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; 
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+  -webkit-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 

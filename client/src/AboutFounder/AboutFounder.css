@@ -1,0 +1,43 @@
+.researchimg{
+    height: 400px;
+}
+.whytxt{
+    font-size: 75px !important;
+    font-weight: 800;
+    font-family: 'Oswald', sans-serif !important;
+}
+
+.boardpart{
+    background: linear-gradient(45deg,#17BE81,#09BBCC);
+}
+.boardcardposition{
+    font-size: 16px;
+    color: var(--color-testimonial);
+}
+.boardcard{
+    border: 0px;
+}
+
+.linkedicon{
+    color: #0A66C2;
+}
+
+.foundername{
+    color: #053539;
+}
+.founderqualification{
+font-size: 22px;
+}
+.founderpart{
+    font-family: 'Heebo', sans-serif;
+}
+
+
+.founderimg{
+    height: 400px;
+}
+
+.memberbio{
+    color: var(--color-subhead1);
+    font-weight: 500;
+}

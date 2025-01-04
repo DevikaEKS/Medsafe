@@ -4,6 +4,7 @@ function OurServices() {
   return (
     <div className='container'>
         <div className='row'>
+            <h1 className='philosophyhead'>Our Services</h1>
             <div className='col-sm-12 col-md-4'>
                 <div className='card servicecard border-0'>
                     <img src=''/>

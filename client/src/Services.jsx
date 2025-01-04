@@ -15,10 +15,5 @@ export const Services = () => {
 
   return (
     <div>
-        <Contactpart />
-        <Menubar />
-        { id === 1 ? <DrugSafety /> : id === 2 ? <Pharmacovigilance /> : <Partnerships /> }
-        <Footer />
-    </div>
-  )
+ 
 }
