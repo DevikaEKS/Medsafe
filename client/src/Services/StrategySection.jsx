@@ -4,14 +4,13 @@ console.log(strategyData);
 
 const StrategySection = () => {
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center pt-5 pb-5">
+    <div className="d-flex flex-column align-items-center justify-content-center p-1 pt-5 pb-5">
       <h1
-        className="text-center font-weight-bold mb-4"
-        style={{ fontSize: "28px", color: "var(--heading-color)" }}
+        className="text-center font-weight-bold mb-4 main-title text-lg"
+        style={{color: "var(--heading)" }}
       >
-        Oviya MedSafe has formed strong strategic alliances where we can provide
-        <br />
-        the following services:
+        Oviya MedSafe has formed strong strategic alliances where we can provide 
+        <br/> the following services:
       </h1>
       <div className="d-flex flex-wrap justify-content-center align-items-center w-75 mt-4">
         {strategyData.map((item) => (
@@ -27,13 +26,16 @@ const StrategySection = () => {
               <img src={item?.image_id} alt="service" className="img-fluid" />
             </div>
             <p
-              className="mt-3 font-weight-bold text-center"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              className="mt-3 text-center secondary-text"
+              style={{ fontWeight: "600"}}
             >
               {item.title}
             </p>
           </div>
         ))}
+      </div>
+      <div>
+        
       </div>
     </div>
   );

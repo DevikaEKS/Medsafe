@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Heebo:wght@100..900&family=Oswald:wght@200..700&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -7,14 +8,98 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --gradientfrom: #0d868f;
-  --gradientto: #17be81;
+  --gradientfrom: #17BE81;
+  --gradientto: #09BBCC;
+  --plus: #20BAD1;
+  --heading: #0D868F;
 }
 
 .p-36 {
   padding: 144px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+/* padding for accordian text */
+.pt-01{
+  padding-top: 5px;
+}
+
+.accordion-container {
+  width: 708px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.img-size {
+  max-width: 419px;
+  max-height: 419px;
+}
+
+.main-title {
+  font-family: 'Oswald', sans-serif;
+}
+
+.main-text {
+  font-family: 'Heebo', sans-serif;
+}
+
+.secondary-text {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.text-lg {
+  font-size: 28px;
+}
+
+/* For tablets and smaller screens (<= 992px) */
+@media (max-width: 992px) {
+  .accordion-container {
+    width: 600px; /* Adjust the width for tablets */
+  }
+  .p-sm-36 {
+    padding: 50px;
+  }
+
+  .img-size {
+    max-width: 400px;
+    max-height: 300px;
+  }
+
+  .pt-01{
+    padding-top: 0;
+  }
+  .text-lg {
+    font-size: 25px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* This media query targets screens smaller than 576px */
+  .p-sm-36 {
+    padding: 25px;
+  }
+
+  .accordion-container {
+    width: 100%;
+  }
+
+  .img-size {
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  .pl-10 {
+    padding-left: 25px;
+  }
+
+  .pt-01{
+    padding-top: 0;
+  }
+
+  .text-lg{
+    font-size: 23px;
+  }
 }
 
 

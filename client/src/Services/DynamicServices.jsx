@@ -1,33 +1,50 @@
 import { servicesData } from "../utils/services/servicesData";
+import TOP from "../assets/services/topsvg.png";
+import BOTTOM from "../assets/services/bottomsvg.png";
+
 
 const DynamicServices = ({ index }) => {
   return (
     <div
       id={servicesData[index]?.id}
-      className="d-flex flex-column flex-sm-row align-items-center justify-content-between p-36"
+      className="position-relative d-flex flex-column flex-sm-row align-items-center justify-content-between p-36 p-sm-36"
     >
       {/* Content */}
       <div className="w-100 w-sm-50">
-        <h1 className="font-weight-bold text-uppercase mb-3" style={{ fontSize: "32px" }}>
+        <h1 className="font-weight-bold main-title text-uppercase mb-3" style={{ fontSize: "32px", color: "var(--heading)" }}>
           {servicesData[index]?.title}
         </h1>
-        <p className="text-justify" style={{ fontSize: "18px", lineHeight: "1.8" }}>
+        <p className="main-text"  style={{ fontSize: "18px", lineHeight: "1.8", textAlign: "justify" }}>
           {servicesData[index]?.description}
         </p>
       </div>
 
       {/* Image */}
-      <div className="w-100 w-sm-50 position-relative d-flex justify-content-center mt-4 mt-sm-0">
+      <div className="w-100 w-sm-50 position-relative d-flex justify-content-center mt-4 mt-sm-1">
         {/* Main Image */}
         <div className="position-relative" style={{ zIndex: 10 }}>
           <img
             src={servicesData[index]?.image_id}
             alt="service"
-            className="img-fluid"
-            style={{ maxWidth: "416px", maxHeight: "416px" }}
+            className="img-size"
+           
           />
         </div>
       </div>
+
+      <img
+        src={TOP}
+        alt=""
+        className="position-absolute"
+        style={{ top: "-240px", left: "-100px", margin: "auto" }}
+      />
+
+      <img
+        src={BOTTOM}
+        alt=""
+        className="position-absolute"
+        style={{ bottom: "-80px", right: "-100px", margin: "auto" }}
+      />
     </div>
   );
 };

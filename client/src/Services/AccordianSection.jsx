@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { accordianData } from "../utils/services/accordianData";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import TOP from "../assets/services/topgraysvg.png";
+import BOTTOM from "../assets/services/bottomgraysvg.png";
+
 
 const AccordianSection = ({ index }) => {
   const [expandedItemId, setExpandedItemId] = useState(null);
@@ -13,16 +16,15 @@ const AccordianSection = ({ index }) => {
 
   return (
     <div
-      className="d-flex flex-column justify-content-center align-items-center py-5"
+      className="position-relative d-flex flex-column justify-content-center align-items-center py-5"
       style={{
         width: "100%",
-        background: "linear-gradient(to right, $gradientfrom, $gradientto)",
+        background: "linear-gradient(to right, var(--gradientfrom), var(--gradientto))",
       }}
     >
       <div
-        className="bg-white"
+        className="bg-white accordion-container"
         style={{
-          width: "708px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         }}
       >
@@ -34,14 +36,14 @@ const AccordianSection = ({ index }) => {
               key={item.id}
               className="d-flex flex-column border-bottom py-3 px-4 cursor-pointer"
               onClick={() => clickHandle(item.id)}
-              style={{ minHeight: "82px" }}
+              style={{ minHeight: "80px",  borderColor: "var(--plus)", borderWidth: "1px", borderStyle: "solid" }}
             >
-              <div className="row d-flex justify-content-between">
+              <div className="row d-flex justify-content-center">
                 {/* Icon Section: 1 grid */}
                 <div className="col-1  ">
                   <div
-                    className="rounded-circle d-flex align-items-center justify-content-center bg-black text-white"
-                    style={{ width: "36px", height: "36px", fontSize: "17px" }}
+                    className="rounded-circle d-flex align-items-center justify-content-center bg-black "
+                    style={{ width: "36px", height: "36px", fontSize: "17px",  color: "var(--plus)" }}
                   >
                     {isExpanded ? <FaMinus /> : <FaPlus />}
                   </div>
@@ -50,8 +52,8 @@ const AccordianSection = ({ index }) => {
                 {/* Title Section: 11 grid */}
                 <div className="col-11">
                   <h1
-                    className="text-capitalize mb-0"
-                    style={{ fontSize: "20px", color: "var(--plus-color)" }}
+                    className="text-capitalize pt-01 pl-10"
+                    style={{ fontSize: "20px", color: "var(--plus)" }}
                   >
                     {item.title}
                   </h1>
@@ -80,6 +82,40 @@ const AccordianSection = ({ index }) => {
           );
         })}
       </div>
+
+      <img 
+        src={TOP}
+        alt=""
+        className="position-absolute"
+        style={{
+          top: "0",
+          left: "0",
+          margin: "auto",
+          width: "",
+          maxWidth: "",
+        }}
+        // style={{
+        //   bottom: "0",
+        //   top: "-23px",
+        //   left: "-2px",
+        //   right: "",
+        //   margin: "auto",
+        //   width: "",
+        //   maxWidth: "",
+        // }} />
+        />
+
+      <img 
+        src={BOTTOM}
+        alt=""
+        className="position-absolute"
+        style={{
+          bottom:"0",
+          right: "0",
+          margin: "auto",
+          width: "",
+          maxWidth: "",
+        }} />
     </div>
   );
 };
