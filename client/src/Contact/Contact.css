@@ -1,0 +1,23 @@
+.sendbtn{
+    background-color: #3B82F6;
+    color: #fff;
+    border: none;
+}
+
+.contactpart{
+    background-image: url("../assets/buildingbg.png");
+    height: 100%;
+}
+.iconmail{
+    height: 40px;
+    width: 40px;
+    color: #66CC66;
+}
+
+.contactformbgpart label{
+    color: black;
+}
+
+.countrylogo{
+    height: 25px;
+}

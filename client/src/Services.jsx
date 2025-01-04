@@ -12,11 +12,11 @@ export const Services = () => {
 
   return (
     <div>
-        <Contactpart />
+        {/* <Contactpart />
         <Menubar />
         <DynamicServices />
         {id ===1 || id === 2 ? <AccordianSection />: <StrategySection />}
-        <Footer />
+        <Footer /> */}
     </div>
   )
 }

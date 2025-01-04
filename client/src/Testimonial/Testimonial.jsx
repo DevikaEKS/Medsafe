@@ -1,73 +1,69 @@
 import React from 'react';
 import Slider from "react-slick";
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'; // Optional: for adding quote icons
+import { FaQuoteLeft } from 'react-icons/fa';
 import "./Testimonial.css";
+
 // Slick settings for the swiper
 const settings = {
-    dots: true,          // Show dots at the bottom
-    infinite: true,      // Infinite loop
-    speed: 500,          // Slide speed in ms
-    autoplay: true,      // Auto swipe
-    autoplaySpeed: 2000, // Delay between auto swipe (in ms)
-    slidesToShow: 1,     // Only one card visible at a time
-    slidesToScroll: 1,   // Scroll one card at a time
-    centerMode: false,   // Disable center mode
-    focusOnSelect: true, // Ensure the focus is on the selected card
-    responsive: [
-      {
-        breakpoint: 700,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+  dots: true,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  centerMode: false,
+  focusOnSelect: true,
+  responsive: [
+    {
+      breakpoint: 700,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
       },
-    ],
-  };
+    },
+  ],
+};
+
+// JSON data for testimonials
+const testimonials = [
+  {
+    quote: "The hard work and support of Oviya MedSafe employees is appreciated and they have been flexible in taking on roles as per the demands of the project, while remaining amiable and enthusiastic throughout.",
+    client: "AVP- Medical Affairs",
+    company: "US-Headquartered Innovator Pharma",
+  },
+  {
+    quote: "It has indeed been a pleasure working with Oviya MedSafe! Timely execution and great quality work! We are happy that our trust paid off well. We would really recommend Oviya MedSafe for a cost effective and quality work in the field of Pharmacovigilance!",
+    client: "Global Safety Lead",
+    company: "Indian multinational generic pharma",
+  },
+  {
+    quote: "Oviya MedSafe has a deep understanding of global PV regulatory requirements throughout the lifecycle of a product. As a new UK MAH, we are a proud beneficiary of their end-to-end PV Support.",
+    client: "Operations Head",
+    company: "UK-based Speciality Pharma",
+  },
+];
 
 function Testimonial() {
   return (
-    <div className="container py-5">
-      <h1 className="text-center mb-5">What Clients Say</h1>
-      
+    <div className="container-fluid py-5 testimonialpart">
+      <h1 className="mb-5 philosophyhead text-light">What Clients Say</h1>
+
       <Slider {...settings}>
-        {/* Testimonial 1 */}
-        <div className="testimonial-card">
-          <div className="testimonial-content">
-            <FaQuoteLeft size={30} color="#0D868F" />
-            <p>"This company provided outstanding service and has helped us tremendously!"</p>
-            <FaQuoteRight size={30} color="#0D868F" />
+        {testimonials.map((testimonial, index) => (
+          <div className="testimonial-card" key={index}>
+            <div className="testimonial-content px-5">
+              <div className="quote-container">
+                <FaQuoteLeft size={30} color="#0D868F" />
+              </div>
+              <p className="phylotext">{testimonial.quote}</p>
+            </div>
+            <div className="client-info">
+              <h4 className="testimonialclient">{testimonial.client}</h4>
+              <p className="text-dark">{testimonial.company}</p>
+            </div>
           </div>
-          <div className="client-info">
-            <h4>AVP- Medical Affairs</h4>
-            <p>US-Headquartered Innovator Pharma</p>
-          </div>
-        </div>
-
-        {/* Testimonial 2 */}
-        <div className="testimonial-card">
-          <div className="testimonial-content">
-            <FaQuoteLeft size={30} color="#0D868F" />
-            <p>"The team is extremely professional and we would definitely recommend them."</p>
-            <FaQuoteRight size={30} color="#0D868F" />
-          </div>
-          <div className="client-info">
-            <h4>Global Safety Lead</h4>
-            <p>Indian multinational generic pharma</p>
-          </div>
-        </div>
-
-        {/* Testimonial 3 */}
-        <div className="testimonial-card">
-          <div className="testimonial-content">
-            <FaQuoteLeft size={30} color="#0D868F" />
-            <p>"Amazing results! They are highly skilled and very customer-focused."</p>
-            <FaQuoteRight size={30} color="#0D868F" />
-          </div>
-          <div className="client-info">
-            <h4>Operations Head</h4>
-            <p>UK-based Speciality Pharma.</p>
-          </div>
-        </div>
+        ))}
       </Slider>
     </div>
   );

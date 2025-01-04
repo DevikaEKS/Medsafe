@@ -1,31 +1,35 @@
 .philosophybg{
-    /* background: linear-gradient(#04DBBA,#034C53,#03B3C9); */
-    background-image: url("../assets/phybg.png");
+    background-image: url("../assets/philo.png");
     height: 100vh !important;
-    background-size: cover;
-    padding: 20px 0;
-    align-items: flex-end;
+    background-size: 100% 100%;
+   
 }
-.philosophyimg{
-    height: 100px;
-    width: 100px;
+
+.phylotext{
+  font-family: 'Heebo', sans-serif;
+}
+.philosophyhead{
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 400;
+  padding: 15px 0px;
 }
 
   
   .philosophy-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; 
-    border-radius: 20px;
+    height: 350px; /* Set a minimum height to maintain consistency */
+
   }
-  .philosophy-card h1{
-    color: #;
-  } 
+  
   .philosophyimg {
-    width: 50px;
-    height: 50px;
+    width: 60px; /* Adjust image size */
+    height: 60px; /* Ensure consistent size */
   }
   
-  
+
+  .philosophy-card ul {
+    padding-left: 20px; /* Ensure proper spacing for lists */
+    margin: 0; /* Remove any extra margins */
+  }
   

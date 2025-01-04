@@ -6,26 +6,26 @@ function Philosophy() {
   return (
     <div className="container-fluid">
       <div className="row philosophybg text-light px-4 text-center">
-        <h1 className="text-center py-2">Philosophy</h1>
-        <div className="col-sm-12 col-md-4 d-flex align-items-end">
-          <div className="card bg-light philosophy-card p-2">
+        <h1 className="text-center py-2 philosophyhead">Philosophy</h1>
+        <div className="col-sm-12 col-md-4 my-2">
+          <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" />
+              <img src={bulbimg} className="philosophyimg" alt="Vision Icon" />
             </div>
-            <h1 className="text-center">Vision</h1>
-            <p className="text-start">
+            <h2 className="text-center mt-3">Vision</h2>
+            <p className="text-justify">
               To become a leader in pharmacovigilance consulting services by
               strategically partnering with global pharmaceutical companies.
             </p>
           </div>
         </div>
-        <div className="col-sm-12 col-md-4 d-flex align-items-end">
-          <div className="card bg-light philosophy-card p-2">
+        <div className="col-sm-12 col-md-4 my-2">
+          <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" />
+              <img src={bulbimg} className="philosophyimg" alt="Mission Icon" />
             </div>
-            <h1 className="text-center">Mission</h1>
-            <p className="text-start">
+            <h2 className="text-center mt-3">Mission</h2>
+            <p className="text-justify">
               To inculcate a pharmacovigilant culture and proactively support
               the growth of drug safety practices across the globe. We will
               achieve this by integrating our expertise in pharmacovigilance
@@ -35,13 +35,13 @@ function Philosophy() {
             </p>
           </div>
         </div>
-        <div className="col-sm-12 col-md-4 d-flex align-items-end">
-          <div className="card bg-light philosophy-card p-2">
+        <div className="col-sm-12 col-md-4 my-2">
+          <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" />
+              <img src={bulbimg} className="philosophyimg" alt="Values Icon" />
             </div>
-            <h1 className="text-center">Values</h1>
-            <ul>
+            <h2 className="text-center mt-3">Values</h2>
+            <ul className="text-justify">
               <li>Passion for Pharmacovigilance</li>
               <li>Continuous learning to empower clients</li>
               <li>Perpetual capability building</li>
