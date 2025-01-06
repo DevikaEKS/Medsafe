@@ -7,7 +7,52 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
+  -moz-osx-font-smoothing: grayscale;
+  --gradientfrom: #17BE81;
+  --gradientto: #09BBCC;
+  --plus: #20BAD1;
+  --heading: #0D868F;
+  --navgradientfrom: #66CC66;
+  --navgradientto: #01475C;
+}
+
+.p-36 {
+  padding: 144px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* padding for accordian text */
+.pt-01{
+  padding-top: 5px;
+}
+
+.accordion-container {
+  width: 708px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-link {
+  text-decoration: none; /* Removes the underline if any */
+  outline: none; /* Removes the focus outline */
+  font-weight: 500;
+}
+
+.img-size {
+  max-width: 419px;
+  max-height: 419px;
+}
+
+.main-title {
+  font-family: 'Oswald', sans-serif;
+}
+
+.main-text {
+  font-family: 'Heebo', sans-serif;
+}
+
+.secondary-text {
+  font-family: 'DM Sans', sans-serif;
 }
 
 .text-lg {

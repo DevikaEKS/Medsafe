@@ -36,14 +36,14 @@ const DynamicServices = ({ index }) => {
         src={TOP}
         alt=""
         className="position-absolute"
-        style={{ top: "-240px", left: "-100px", margin: "auto" }}
+        style={{zIndex:"-1000", top: "-240px", left: "-100px", margin: "auto" }}
       />
 
       <img
         src={BOTTOM}
         alt=""
         className="position-absolute"
-        style={{ bottom: "-80px", right: "-100px", margin: "auto" }}
+        style={{zIndex:"-1000", bottom: "0px", right: "0px", margin: "auto"}}
       />
     </div>
   );
