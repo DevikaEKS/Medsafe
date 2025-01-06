@@ -12,6 +12,8 @@
   --gradientto: #09BBCC;
   --plus: #20BAD1;
   --heading: #0D868F;
+  --navgradientfrom: #66CC66;
+  --navgradientto: #01475C;
 }
 
 .p-36 {
@@ -28,6 +30,12 @@
 .accordion-container {
   width: 708px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-link {
+  text-decoration: none; /* Removes the underline if any */
+  outline: none; /* Removes the focus outline */
+  font-weight: 500;
 }
 
 .img-size {
