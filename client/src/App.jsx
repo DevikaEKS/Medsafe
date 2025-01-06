@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Landingpage/Footer/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Contactpart from './Contactpart/Contactpart';
-import Menubar from './Landingpage/Menubar/Menubar';
+
 import Videopart from './Landingpage/Videopart/Videopart';
 import Aboutpage from './Aboutpage/Aboutpage';
 import OurServices from './Landingpage/Our Services/OurServices';
@@ -36,15 +36,15 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={ [<Contactpart/>,<Menubar/>,<Aboutpage/>,<OurServices/>,<Testimonial/>,<Blogbanner/>,<Footer/>,<Whatsapp/>]}/>
-      <Route path='/services' element={[<Contactpart />,<Menubar />,<Footer />,<Whatsapp/>]}/>
+      <Route path="/" element={ [<Contactpart/>,<Aboutpage/>,<OurServices/>,<Testimonial/>,<Blogbanner/>,<Footer/>,<Whatsapp/>]}/>
+      <Route path='/services' element={[<Contactpart />,<Footer />,<Whatsapp/>]}/>
       <Route path='/tab' element={<Tablet/>}/>
-      <Route path='/aboutfounder' element={[<Contactpart/>,<Menubar/>,<AboutFounder/>,<Footer/>,<Whatsapp/>]}/>
-      <Route path='/founder' element={[<Contactpart/>,<Menubar/>,<Founder/>,<Footer/>,<Whatsapp/>]}/>
-      <Route path='/boardmembers' element={[<Contactpart/>,<Menubar/>,<BoardMembers/>,<Footer/>,<Whatsapp/>]}/>
-      <Route path='/contact' element={[<Contactpart/>,<Menubar/>,<Contact/>,<Maparea/>,<Footer/>,<Whatsapp/>]}/>
+      <Route path='/aboutfounder' element={[<Contactpart/>,<AboutFounder/>,<Footer/>,<Whatsapp/>]}/>
+      <Route path='/founder' element={[<Contactpart/>,<Founder/>,<Footer/>,<Whatsapp/>]}/>
+      <Route path='/boardmembers' element={[<Contactpart/>,<BoardMembers/>,<Footer/>,<Whatsapp/>]}/>
+      <Route path='/contact' element={[<Contactpart/>,<Contact/>,<Maparea/>,<Footer/>,<Whatsapp/>]}/>
       <Route path='/medsafelogin' element={<Login/>}/>
- <Route path='/careers' element={[<Contactpart/>,<Menubar/>,<Careers/>,<Careersdata/>,<Footer/>,<Whatsapp/>]} />
+ <Route path='/careers' element={[<Contactpart/>,<Careers/>,<Careersdata/>,<Footer/>,<Whatsapp/>]} />
     </Routes>
     </BrowserRouter>
 
