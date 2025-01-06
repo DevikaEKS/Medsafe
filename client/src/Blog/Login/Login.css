@@ -1,0 +1,19 @@
+.formbg{
+    background-color: #0D868F;
+}
+
+.bloglogin{
+    background-color: var(--blog-bgcolor);
+    color: #0D868F;
+    font-weight: 400;
+}
+
+
+.bloglogin:hover{
+    background-color: var(--blog-bgcolor);
+    color: #0D868F;
+}
+
+.loginhead{
+    color: var(--blog-bgcolor);
+}

@@ -49,7 +49,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import logo from "../assets/oviyalogo.png";
+import logo from "../../assets/oviyalogo.png";
+import { Link } from 'react-router-dom';
 
 function Menubar() {
   return (
@@ -63,12 +64,14 @@ function Menubar() {
           <Nav className="me-auto">
             <Nav.Link href="#home">HOME</Nav.Link>
             <NavDropdown title="WHO WE ARE" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">About Us</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/founder">About Us</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Our Founder</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Our Board</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="SERVICES" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Drug Safety Services</NavDropdown.Item>
+         
+              <NavDropdown.Item as={Link} to="/aboutfounder">Drug Safety Services</NavDropdown.Item>
+
               <NavDropdown.Item href="#action/3.2">Pharmacovigilance Consulting</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Strategic Partnerships</NavDropdown.Item>
             </NavDropdown>
@@ -77,6 +80,7 @@ function Menubar() {
             <Nav.Link href="#link">CAREERS</Nav.Link>
             <Nav.Link href="#link">CONTACT</Nav.Link>
             <Nav.Link href="#link">LOGIN</Nav.Link>
+           
           </Nav>
           <InputGroup className="d-flex">
             <InputGroup.Text id="search-addon">

@@ -49,6 +49,16 @@ United Kingdom</p>
               <button className='border-0 subscribebtn py-3'>SUBSCRIBE</button>
               </div>
               
+              <div className='col-sm-12 d-block d-md-none'>
+              <h4 className='footerhead py-3'>Contact</h4>
+             <p className='text-decoration-none'><a href="mailto:info@oviyamedsafe.com" className='text-light text-decoration-none'>info@oviyamedsafe.com</a></p> 
+              <p className='text-decoration-none'><a href="tel:+91-422-3502276" className='text-light text-decoration-none'>IND +91 422 3502276</a></p> 
+<a href="tel:+44-20-3393-6037" className='text-light text-decoration-none'>UK +44 20 3393 6037</a>
+
+
+              <p>Pharmacovigilance Consulting</p>
+              <p>Strategic Partnerships</p>
+              </div>
                <div className='d-flex social-links py-5'>
              <a href=''><CiFacebook className='icon'/></a>
                      <a href='' > <FaXTwitter className='icon'/></a>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Philosophy.css';
-import bulbimg from '../assets/bulb.png';
+
 
 function Philosophy() {
   return (
@@ -10,7 +10,7 @@ function Philosophy() {
         <div className="col-sm-12 col-md-4 my-2">
           <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" alt="Vision Icon" />
+              {/* <img src={bulbimg} className="philosophyimg" alt="Vision Icon" /> */}
             </div>
             <h2 className="text-center mt-3">Vision</h2>
             <p className="text-justify">
@@ -22,7 +22,7 @@ function Philosophy() {
         <div className="col-sm-12 col-md-4 my-2">
           <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" alt="Mission Icon" />
+              {/* <img src={bulbimg} className="philosophyimg" alt="Mission Icon" /> */}
             </div>
             <h2 className="text-center mt-3">Mission</h2>
             <p className="text-justify">
@@ -38,7 +38,7 @@ function Philosophy() {
         <div className="col-sm-12 col-md-4 my-2">
           <div className="card bg-light p-3 philosophy-card">
             <div className="d-flex justify-content-center">
-              <img src={bulbimg} className="philosophyimg" alt="Values Icon" />
+              {/* <img src={bulbimg} className="philosophyimg" alt="Values Icon" /> */}
             </div>
             <h2 className="text-center mt-3">Values</h2>
             <ul className="text-justify">
