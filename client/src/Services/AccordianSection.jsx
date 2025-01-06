@@ -94,28 +94,20 @@ const AccordianSection = ({ index }) => {
           width: "",
           maxWidth: "",
         }}
-        // style={{
-        //   bottom: "0",
-        //   top: "-23px",
-        //   left: "-2px",
-        //   right: "",
-        //   margin: "auto",
-        //   width: "",
-        //   maxWidth: "",
-        // }} />
-        />
-
+      />
+    
       <img 
-        src={BOTTOM}
-        alt=""
-        className="position-absolute"
-        style={{
-          bottom:"0",
-          right: "0",
-          margin: "auto",
-          width: "",
-          maxWidth: "",
-        }} />
+          src={BOTTOM}
+          alt=""
+          className="position-absolute"
+          style={{
+              bottom: "0",
+              right: "0",
+              margin: "auto",
+              width: "",
+              maxWidth: "",
+          }}
+      />
     </div>
   );
 };
