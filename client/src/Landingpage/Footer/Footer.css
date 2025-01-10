@@ -1,16 +1,26 @@
 .footerbg{
-    background: linear-gradient(#0D868F,#042629);
+    background: linear-gradient(to right,#0D868F,#042629);
     color: white;
 }
-
+.footerbg p{
+    font-size: 14px;
+    font-weight: 500;
+}
 .footerhead{
     color: #FFFBDB;
     font-size: 20px;
     padding: 10px 0px;
 }
+.oviyafooter{
+    color: #FFFBDB; 
+    font-size: 18px;
+    padding-bottom: 10px;
+}
 .subscribebtn{
     background-color: #64B556;
     color: #fff;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .social-links a{
@@ -29,3 +39,9 @@
 .icon{
     font-size: 24px !important; 
 }
+
+.email-input::placeholder {
+    text-align: center; 
+    color: gray; 
+    font-size: 14px;
+  }

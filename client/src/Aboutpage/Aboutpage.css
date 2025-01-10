@@ -1,12 +1,40 @@
 
 
-.arrow-icon {
-  color: var(--oviya-color);
+.arrowic {
+  color: var(--oviya-color) !important;
   font-size: 2rem;
 }
 .para{
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 30px;
+  font-family: 'Heebo', sans-serif;
 }
 .abttxt{
   color: var(--oviya-color);
+}
+
+
+.capsuleimg{
+  max-height: 500px;
+}
+
+@media (max-width:320px){
+  .capsuleimg{
+    max-height: 200px;
+  } 
+}
+@media (min-width:321px) and (max-width:426px){
+  .capsuleimg{
+    max-height: 250px;
+  }  
+}
+
+@media (min-width:427px) and (max-width:768px){
+  .capsuleimg{
+    max-height: 300px;
+  }  
+}
+
+.bgaboutpage{
+  background-color: #fbfcfc;
 }

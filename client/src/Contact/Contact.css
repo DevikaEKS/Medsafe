@@ -5,19 +5,46 @@
 }
 
 .contactpart{
-    background-image: url("../assets/buildingbg.png");
-    height: 100%;
+    background-image: url("../assets/realestate.png");
+    background-size: contain;
 }
 .iconmail{
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     color: #66CC66;
+   
 }
-
+.sendmsg{
+    font-size: 22px;
+    font-weight: 700 !important;
+    font-family: 'Heebo', sans-serif;
+}
 .contactformbgpart label{
     color: black;
 }
 
 .countrylogo{
-    height: 25px;
+    height: 20px;
+}
+.contactpara{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contactformbgpart label{
+    font-weight: 600;
+    font-size: 14px;
+}
+.sendbtn{
+    font-weight: 500;
+    font-family: 'Heebo', sans-serif;
+}
+
+.iconparas{
+    font-size: 20px;
+}
+
+.contactfoot p{
+    font-weight: 600;
+    font-size: 15px;
 }

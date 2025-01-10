@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Whatsapp.css";
+import whatsappicon from "../../assets/whatsapp.png";
 import { Link } from 'react-router-dom';
 
 function Whatsapp() {
@@ -12,7 +13,7 @@ function Whatsapp() {
   return (
     <div className='fixed-webinarpart'>  
   
-<p onClick={() => navigateToWhatsApp("8220763222")}>Whatsapp</p>
+<p onClick={() => navigateToWhatsApp("8220763222")} className='iconwh'><img src={whatsappicon} height={"40px"}/></p>
      
 
 

@@ -1,43 +1,128 @@
+
+.abtparts{
+    background-image: url("../assets/hexbanner.png");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+.whytx{
+    color: var(--subhead2-color);
+}
+.ovtxt{
+    color: var(--subhead2-color);
+    font-size: 35px;
+    font-weight: 600;
+}
+
 .researchimg{
     height: 400px;
 }
+.about1img{
+height: 300px;
+}
 .whytxt{
-    font-size: 75px !important;
+    font-size: 85px !important;
+    color: var(--subhead2-color);
     font-weight: 800;
     font-family: 'Oswald', sans-serif !important;
 }
+.oviyaheading{
+    font-size: 65px !important;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif !important;
+}
 
+.medsafe{
+    font-size: 35px;
+    font-weight: 600;
+}
+.medsafepara{
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: 'Heebo', sans-serif;
+}
 .boardpart{
-    background: linear-gradient(45deg,#17BE81,#09BBCC);
+    background: linear-gradient(to right,#17BE81,#09BBCC);
 }
 .boardcardposition{
-    font-size: 16px;
+    font-size: 14px;
     color: var(--color-testimonial);
 }
-.boardcard{
-    border: 0px;
+
+.boardcard {
+    font-family: 'Barlow', sans-serif;
+    border: 0px;      
 }
 
 .linkedicon{
     color: #0A66C2;
 }
 
-.foundername{
-    color: #053539;
-}
-.founderqualification{
-font-size: 22px;
-}
-.founderpart{
-    font-family: 'Heebo', sans-serif;
-}
-
-
-.founderimg{
-    height: 400px;
-}
 
 .memberbio{
-    color: var(--color-subhead1);
-    font-weight: 500;
+    color: #0D868F !important;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Barlow', sans-serif;
 }
+
+.boardcardtitle{
+font-size: 22px;
+font-family: 'Barlow', sans-serif;
+font-weight: 600;
+}
+
+@media (min-width:426px) and (max-width:769px){
+    .boardcard{
+        height: 450px;
+    }
+    
+    .whytxt {
+        font-size: 30px;
+        color: var(--color-testimonial); /* Adjust as necessary */
+    }
+    
+}
+.about1img{
+    height: 360px;
+}
+@media (max-width:500px){
+    .researchimg{
+        max-width: 300px;
+        max-height: 250px;
+        margin: 10px;
+    } 
+    .about1img{
+        max-width: 320px;
+        max-height: 250px;
+    } 
+    .ovtxt{
+        color: var(--subhead2-color);
+        font-size: 25px;
+        font-weight: 600;
+    }
+     
+}
+@media (min-width:501px) and (max-width:769px){
+    .about1img{
+        max-width: 300px;
+        max-height: 300px;
+        margin: 10px;
+    }
+    .researchimg{
+        max-width: 290px;
+        max-height: 250px;
+        margin: 10px;
+    }
+   
+}
+  
+
+.textjust {
+    text-align: justify;
+    hyphens: auto;
+    word-wrap: break-word;
+    line-height: 1.5;
+    word-spacing: 0.02em;
+  }
+   

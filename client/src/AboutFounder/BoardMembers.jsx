@@ -1,62 +1,9 @@
-// import React from 'react';
-// import founder1 from "../assets/founder1.png";
-// import founder2 from "../assets/founder2.png";
-// import founder3 from "../assets/founder3.png";
-
-// function BoardMembers() {
-//   const boardMembers = [{
-//     name: 'Dr J Vijay Venkatraman',
-//     position: "Founder",
-//     bio: `MBBS, F. Diab., MBA, FPIPA (UK) Managing Director & CEO,Oviya MedSafe`,
-//     img: founder2 // Updated to reference the imported image directly
-//    }, {
-//     name: 'Dr V Janarthanan',
-//     position: "Chairman, Oviya MedSafe",
-//     bio: `MS, FICS, FAIS Chief Surgeon & Managing Director, KTVR Group Hospital Coimbatore, India`,
-//     img: founder1 // Updated to reference the imported image directly
-//    },
-//    {
-//     name: 'Dr C J Arun Raja',
-//     position:"Director, Oviya MedSafe",
-//     bio: `MS, D. Ortho, DNB (Ortho) Consultant Orthopaedic Surgeon, KTVR Group Hospital Coimbatore, India`,
-//     img: founder3 // Updated to reference the imported image directly
-//    }];
-
-//   return (
-//     <div className='container-fluid p-0 m-0 founderpart'>
-//       <h1 className='text-center'>Our Board</h1>
-// <div className='boardpart'>
-//   <div className='container'>
-//       <div className='row text-center mx-5 py-5'>
- 
-//         {boardMembers.map((member, index) => (
-//           <div className='col-sm-12 col-md-4' key={index}>
-//             <div className="card mb-4 boardcard m-3 h-100 border-0">
-//               <img src={member.img} alt={member.name} className="card-img-top" />
-//               <div className="card-body">
-//                 <h5 className="card-title boardcardtitle">{member.name}</h5>
-//                 <p className="card-text boardcardposition">{member.position}</p>
-//                 <p className="card-text memberbio">{member.bio}</p>
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//         </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default BoardMembers;
-
-
-
 import React from 'react';
 import founder1 from "../assets/founder1.png";
 import founder2 from "../assets/founder2.png";
 import founder3 from "../assets/founder3.png";
-
+import "./AboutFounder.css";
+import { Helmet } from 'react-helmet';
 function BoardMembers() {
   const boardMembers = [{
     name: 'Dr J Vijay Venkatraman',
@@ -78,14 +25,21 @@ function BoardMembers() {
 
   return (
     <div className='container-fluid p-0 m-0 founderpart'>
-      <h1 className='text-center'>Our Board</h1>
+      <Helmet>
+                    <title>Oviya Medsafe Board of Directors | Experts in Healthcare and Data Security</title>
+                    <meta name="description" content="Meet the board of directors at Oviya Medsafe. Our team of experts brings years of experience in healthcare, data security, and innovation to guide our mission in improving healthcare safety." />
+                    <meta name="keywords" content="Oviya Medsafe Board, Healthcare Experts, Board of Directors, Medical Data Security, Healthcare Innovation, Data Security Leaders, Oviya Medsafe Leadership Team" />
+                    <link rel="canonical" href="https://www.oviyamedsafe.com/our-board" />
+                  </Helmet>
+      <h1 className='text-center subhead2 pb-3 pt-4'>Our Board</h1>
       <div className='boardpart'>
         <div className='container'>
-          <div className='row text-center mx-5 py-5'>
+          <div className='row text-center mx-2  py-5'>
             {boardMembers.map((member, index) => (
-              <div className='col-sm-12 col-md-4' key={index}>
-                <div className="card mb-4 boardcard m-2 h-100 border-0">
-                  <img src={member.img} alt={member.name} className="card-img-top" />
+              <div className='col-sm-12 col-md-4 my-1' key={index}>
+                <div className="card boardcard mx-1 mx-lg-5 border-0 h-100">
+                  <img src={member.img} title="Oviya MedSafe Leadership – Driving Excellence in Drug Safety & Compliance" alt="Board members of Oviya MedSafe, representing leadership in global drug safety and pharmacovigilance
+" className="card-img-top" />
                   <div className="card-body">
                     <h5 className="card-title boardcardtitle">{member.name}</h5>
                     <p className="card-text boardcardposition">{member.position}</p>

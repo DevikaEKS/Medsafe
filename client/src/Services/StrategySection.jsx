@@ -1,12 +1,11 @@
 import { strategyData } from '../utils/services/accordianData';
-
-console.log(strategyData);
+import './services.css'
 
 const StrategySection = () => {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center p-1 pt-5 pb-5">
       <h1
-        className="text-center font-weight-bold mb-4 main-title text-lg"
+        className="text-center font-weight-bold mb-4 main-title heading-text"
         style={{color: "var(--heading)" }}
       >
         Oviya MedSafe has formed strong strategic alliances where we can provide 
@@ -23,7 +22,7 @@ const StrategySection = () => {
             }}
           >
             <div>
-              <img src={item?.image_id} alt="service" className="img-fluid" />
+              <img src={item?.image_id} title={item?.tit} alt={item?.alt} className="img-fluid" />
             </div>
             <p
               className="mt-3 text-center secondary-text"

@@ -3,6 +3,7 @@ import { accordianData } from "../utils/services/accordianData";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import TOP from "../assets/services/topgraysvg.png";
 import BOTTOM from "../assets/services/bottomgraysvg.png";
+import './services.css';
 
 
 const AccordianSection = ({ index }) => {
@@ -38,9 +39,9 @@ const AccordianSection = ({ index }) => {
               onClick={() => clickHandle(item.id)}
               style={{ minHeight: "80px",  borderColor: "var(--plus)", borderWidth: "1px", borderStyle: "solid" }}
             >
-              <div className="row d-flex justify-content-center">
+              <div className="row d-flex align-items-center justify-content-center">
                 {/* Icon Section: 1 grid */}
-                <div className="col-1  ">
+                <div className="col-1"> 
                   <div
                     className="rounded-circle d-flex align-items-center justify-content-center bg-black "
                     style={{ width: "36px", height: "36px", fontSize: "17px",  color: "var(--plus)" }}
@@ -52,14 +53,16 @@ const AccordianSection = ({ index }) => {
                 {/* Title Section: 11 grid */}
                 <div className="col-11">
                   <h1
-                    className="text-capitalize pt-01 pl-10"
+                    className="text-capitalize acc-text-pad"
                     style={{ fontSize: "20px", color: "var(--plus)" }}
                   >
                     {item.title}
                   </h1>
-                  {/* Display content only for the expanded item */}
-                  <div
-                    className={`overflow-hidden transition-all`}
+                  
+                </div>
+                {/* Display content only for the expanded item */}
+                <div
+                    className={`ps-4 row overflow-hidden transition-all col-11`}
                     style={{
                       maxHeight: isExpanded ? "500px" : "0",
                       transition: "max-height 0.3s ease",
@@ -76,7 +79,6 @@ const AccordianSection = ({ index }) => {
                       {item.content}
                     </p>
                   </div>
-                </div>
               </div>
             </div>
           );
@@ -94,28 +96,20 @@ const AccordianSection = ({ index }) => {
           width: "",
           maxWidth: "",
         }}
-        // style={{
-        //   bottom: "0",
-        //   top: "-23px",
-        //   left: "-2px",
-        //   right: "",
-        //   margin: "auto",
-        //   width: "",
-        //   maxWidth: "",
-        // }} />
-        />
-
+      />
+    
       <img 
-        src={BOTTOM}
-        alt=""
-        className="position-absolute"
-        style={{
-          bottom:"0",
-          right: "0",
-          margin: "auto",
-          width: "",
-          maxWidth: "",
-        }} />
+          src={BOTTOM}
+          alt=""
+          className="position-absolute"
+          style={{
+              bottom: "0",
+              right: "0",
+              margin: "auto",
+              width: "",
+              maxWidth: "",
+          }}
+      />
     </div>
   );
 };
@@ -124,58 +118,3 @@ export default AccordianSection;
 
 
 
-
-// import { useState } from "react";
-// import { accordianData } from "../utils/services/accordianData";
-// import { FaPlus, FaMinus } from "react-icons/fa";
-
-// const AccordianSection = () => {
-//   const [expandedItemId, setExpandedItemId] = useState(null);
-
-//   const clickHandle = (id) => {
-//     // Toggle the expanded state for the clicked item
-//     setExpandedItemId((prevId) => (prevId === id ? null : id));
-//   };
-
-//   return (
-//     <div className="w-full py-[49px] flex flex-col justify-between items-center bg-gradient-to-r from-gradientfrom to-gradientto">
-//       <div className="bg-white w-[708px]">
-//         {accordianData[0]?.serviceTwo.map((item) => {
-//           const isExpanded = expandedItemId === item.id;
-
-//           return (
-//             <div
-//               key={item.id}
-//               className="min-h-[92px] p-5 border-b-[1px] border-plus cursor-pointer"
-//               onClick={() => clickHandle(item.id)}
-//             >
-//               <div className="flex justify-between">
-//                 <div className="w-1/12">
-//                   <div className="flex justify-center items-center rounded-full text-[19px] w-[36px] h-[36px] bg-black text-plus">
-//                     {isExpanded ? <FaMinus /> : <FaPlus />}
-//                   </div>
-//                 </div>
-//                 <div className="w-11/12 flex flex-col">
-//                   <h1 className="text-[20px] text-plus capitalize">{item.title}</h1>
-//                   {/* Display content only for the expanded item */}
-//                   <div
-//                   className={`transition-max-height duration-300 overflow-hidden ${
-//                     isExpanded ? "max-h-[500px]" : "max-h-0"
-//                   }`}
-//                   >
-//                     <p className="text-[15px] px- font-heebo pt-5 text-justify leading-7 text-gray-500">
-//                       {item.content}
-//                     </p>
-//                   </div>
-//                 </div>
-//               </div>
-
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AccordianSection;
