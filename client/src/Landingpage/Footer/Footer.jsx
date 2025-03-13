@@ -10,7 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./Footer.css"
 function Footer() {
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
   const [email, setEmail] = useState("");
   // const [message, setMessage] = useState("");
 
@@ -21,7 +22,7 @@ function Footer() {
     }
 
     try {
-      const response = await fetch("http://192.168.253.110:5000/api/subscribe", {
+      const response = await fetch("https://oviyamedsafe.com/api/subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,6 +35,7 @@ function Footer() {
       if (response.ok) {
         toast.success(data.message); // Display success message
         setEmail(""); // Clear the email input
+        window.location.reload(); // Refresh the page
       } else {
         toast.error(data.message || "Subscription failed."); // Display error message
       }
@@ -52,24 +54,57 @@ const years=now.getFullYear()
               <h4 className='footerhead py-3'>Location</h4>
               <h5 className='oviyafooter'>Oviya MedSafe Pvt Ltd</h5>
               <p className='pe-4'>2nd Floor, KTVR Gardens
-                220a-3, Marudha Konar Road Velandipalayam
-                Coimbatore – 641 025</p>
+              <br/> 220a-3, Marudha Konar Road<br/> Velandipalayam<br/>
+                Coimbatore – 641 025<br/>Tamil Nadu, India</p>
                 <h5 className='oviyafooter'>Oviya MedSafe UK Ltd</h5>
-                <p>Suite LP25393
-                20-22, Wenlock Road
-                London, N1 7GU
+                <p>Suite LP25393 <br/>
+                20-22, Wenlock Road <br/>
+                London N1 7GU <br/>
                 United Kingdom</p>
               </div>
             <div className='col-sm-12 col-md-6 col-lg-2'>
               <h5 className='footerhead py-3'>Explore</h5>
               <Link to={"/"} className='text-decoration-none text-light'><p>Home</p></Link>
-              <Link to={"/about-us"} className='text-decoration-none text-light'><p>Who we are</p></Link>
-              <Link to={"/drug-safety-services"} className='text-decoration-none text-light'><p>Services</p></Link>
+             
+              {/* Who We Are Dropdown */}
+            <div className="dropdown">
+              <p
+                className="m-0 p-0 btn dropdown-toggle text-light pb-3"
+                onClick={() => setIsDropdownOpen1(!isDropdownOpen1)}
+              >
+                Who we are
+              </p>
+              {isDropdownOpen1 && (
+                <div className="dropdown-menu show">
+                  <Link to="/about-us" className="dropdown-item">About Us</Link>
+                  <Link to="/our-founder" className="dropdown-item">Our Founder</Link>
+                  <Link to="/our-board" className="dropdown-item">Board Members</Link>
+                </div>
+              )}
+            </div>
+              <div className="col-sm-12 col-md-6 col-lg-3">
+            <div className="dropdown">
+              <p
+                className="m-0 p-0 btn dropdown-toggle text-light pb-3"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                Services
+              </p>
+              {isDropdownOpen && (
+                <div className="dropdown-menu show">
+                  <Link to="/drug-safety-services" className="dropdown-item">Drug Safety Services</Link>
+                  <Link to="/pharmacovigilance-consulting" className="dropdown-item">Pharmacovigilance Consulting</Link>
+                  <Link to="/strategic-partnerships" className="dropdown-item">Strategic Partnerships</Link>
+                </div>
+              )}
+            </div>
+          </div>
               <Link to={"/news"} className='text-decoration-none text-light'><p>News</p></Link>
               <Link to={"/downloads"}className='text-decoration-none text-light'><p>Downloads</p></Link>
               <Link  to={"/careers"} className='text-decoration-none text-light'><p>Careers</p></Link>
               <Link to={"/contact"} className='text-decoration-none text-light'><p>Contact</p></Link>
-              <Link to={"/disclaimer-and-privacy-policy"} className='text-decoration-none text-light'><p>Disclaimer & Privacy Policy</p></Link>
+              <Link to={"/disclaimer-and-privacy-policy"} className='text-decoration-none text-light'><p>Disclaimer & <br/> Privacy Policy</p></Link>
+              <Link to={"/sitemap"} className='text-decoration-none text-light'><p>Sitemap</p></Link>
               </div>
             <div className='col-sm-12 col-md-6 col-lg-3'>
               <h4 className='footerhead py-3'>Services</h4>
@@ -100,10 +135,10 @@ const years=now.getFullYear()
               <p className='text-decoration-none'><a href="tel:+44-20-3393-6037" className='text-light text-decoration-none'><img src={Phwhite} height={"20px"} className='pe-2'/>UK +44 20 3393 6037</a></p>
               </div>
                <div className='d-flex social-links py-5'>
-             <a href='https://www.facebook.com/OviyaMedSafe'><CiFacebook className='icon'/></a>
-                     <a href='https://x.com/OviyaMedSafe' > <FaXTwitter className='icon'/></a>
-                     <a href='https://www.youtube.com/channel/UCJMIsvtEWEP0NwUalnRgODQ/videos'><AiOutlineYoutube/></a>
-             <a href='https://www.linkedin.com/company/oviya-medsafe/'><CiLinkedin/></a>
+             <a href='https://www.facebook.com/OviyaMedSafe' target='blank'> <CiFacebook className='icon'/></a>
+                     <a href='https://x.com/OviyaMedSafe' target='blank' > <FaXTwitter className='icon'/></a>
+                     <a href='https://www.youtube.com/channel/UCJMIsvtEWEP0NwUalnRgODQ/videos' target='blank'><AiOutlineYoutube/></a>
+             <a href='https://www.linkedin.com/company/oviya-medsafe/' target='blank'><CiLinkedin/></a>
               </div>
               </div>  
         </div>

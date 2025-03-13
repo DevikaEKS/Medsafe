@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Blogbanner.css";
@@ -9,15 +8,12 @@ import { LuCircleUserRound } from "react-icons/lu";
 function Blogbanner() {
   const [blogs, setBlogs] = useState([]); 
   const navigate = useNavigate();
-
   useEffect(() => {
-
-    const fetchCourses = async () => {
+  const fetchCourses = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/news");
+        const response = await fetch("https://oviyamedsafe.com/api/news");
         if (response.ok) {
           const data = await response.json();
-         
           const sortedBlogs = data
           .filter(blog => blog.publish === 1)
             .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -39,14 +35,14 @@ function Blogbanner() {
         <h1 className="text-center subhead2 mb-5">News</h1>
         {blogs.length === 0 ? (
           <div className="col-12 text-center">
-            <p>No News available.</p>
+            <p>Coming Soon</p>
           </div>
         ) : (
           blogs.map((blog) => (
             <div key={blog.id} className="col-sm-12 col-lg-4 mb-2">
               <div className="card colourcard mt-3 h-100 rounded-3">
                 <img
-                  src={`http://localhost:5000/uploads/${blog.image}`} 
+                  src={`https://oviyamedsafe.com/api/uploads/${blog.image}`} 
                   title={blog.news_title}
                   alt={blog.news_title} 
                   className="card-img-top"
@@ -80,8 +76,7 @@ function Blogbanner() {
                   </h5>
                   <Link
                     className="px-2 readbtn my-2"
-                    to={`/news/${blog.id}`}
-                  >
+                    to={`/news/${blog.id}`}>
                     Read More
                   </Link>
                 </div>

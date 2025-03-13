@@ -1,20 +1,40 @@
-
-
-import React, { useState } from 'react'
-import LOGO from '../../assets/logoicon.png'
-import Navbar from './Navbar'
+import React, { useEffect, useRef, useState } from 'react';
+import LOGO from '../../assets/logoovv.png';
+import Navbar from './Navbar';
 import MobileNav from './MobileNav';
-import './Menubar.css'
+import './Menubar.css';
+import { Link } from 'react-router-dom';
+
 
 
 const Menubar = () => {
+  const [hamToggle, setHamToggle] = React.useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
-  const [hamToggle, setHamToggle] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 300) { // Apply only for desktops (xl screens)
+        setIsSticky(window.scrollY > 100);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll); // Handle screen resize
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   return (
-    <div>
+    <div className='menubar-container'>
+     
       {/* Desktop View */}
       <div
-        className='d-none d-xl-flex'
+        className={`d-none d-xl-flex ${isSticky ? 'sticky' : ''}`}
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -22,45 +42,18 @@ const Menubar = () => {
           background: "linear-gradient(to right, var(--navgradientfrom), var(--navgradientto))"
         }}
       >
-        <div>
-          <img src={LOGO} alt="Logo" />
-        </div>
+        <Link to="/">
+          <img src={LOGO} title='Oviya MedSafe company logo.' className='p-0 m-0 me-5' alt="Oviya MedSafe - Global Pharmacovigilance Consulting & Drug Safety Services" style={{height: "65px"}} />
+        </Link>
         
-        {/* Navbar */}
         <Navbar />
         
-        {/* Search Bar */}
-        <div className="d-flex align-items-center" style={{paddingRight: '28px'}}>
-          <div
-            className="input-group"
-            style={{
-              maxWidth: '300px',
-              borderRadius: '100px',
-              overflow: 'hidden', // Ensures child elements respect borderRadius
-              boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            <span className="input-group-text bg-white border-0" style={{color: 'var(--heading)'}}>
-              <i className="bi bi-search"></i>
-            </span>
-            <input
-              type="text"
-              className="form-control border-0"
-              placeholder="Search"
-              style={{
-                borderRadius: '0', // Ensures the input field does not override parent radius
-                outline: 'none', // Removes focus outline
-                boxShadow: 'none', // Removes any shadow applied during focus
-              }}
-            />
-          </div>
-        </div>
-
+      
       </div>
 
-     {/* Mobile View */}
-     <div
-        className="d-flex d-xl-none align-items-center"
+      {/* Mobile View */}
+      <div
+        className={`d-flex d-xl-none ${isSticky ? 'sticky' : ''}`}
         style={{
           justifyContent: 'space-between',
           padding: '',
@@ -68,12 +61,10 @@ const Menubar = () => {
           height: '60px',
         }}
       >
-        {/* Logo */}
-        <div>
-          <img src={LOGO} alt="Logo" style={{ height: '60px' }} />
-        </div>
+        <Link to={"/"}>
+          <img src={LOGO} alt="Logo" className='p-0 m-0' style={{ height: '60px'}}  />
+        </Link>
 
-        {/* Hamburger Menu */}
         <div
           className="d-flex align-items-center"
           onClick={() => setHamToggle(!hamToggle)}
@@ -89,51 +80,22 @@ const Menubar = () => {
         </div>
       </div>
 
-      {/* Dropdown Container with Smooth Animation */}
       <div
         style={{
-          maxHeight: hamToggle ? '370px' : '0', // Dynamic height
-          overflow: 'hidden', // Prevent content overflow
+          maxHeight: hamToggle ? '370px' : '0',
+          overflow: 'hidden',
           background: '#fff',
           boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
-          transition: 'max-height 0.5s ease-in-out', // Smooth transition
+          transition: 'max-height 0.5s ease-in-out',
           alignItems: 'right',
-          
         }}
       >
         <MobileNav setHamToggle={setHamToggle} />
 
-        {/* Search Bar */}
-        <div className="d-flex align-items-center" style={{paddingLeft: '3rem', paddingBottom: '20px'}}>
-          <div
-            className="input-group"
-            style={{
-              maxWidth: '300px',
-              borderRadius: '100px',
-              overflow: 'hidden', // Ensures child elements respect borderRadius
-              boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            <span className="input-group-text bg-white border-0" style={{color: 'var(--heading)'}}>
-              <i className="bi bi-search"></i>
-            </span>
-            <input
-              type="text"
-              className="form-control border-0"
-              placeholder="Search"
-              style={{
-                borderRadius: '0', // Ensures the input field does not override parent radius
-                outline: 'none', // Removes focus outline
-                boxShadow: 'none', // Removes any shadow applied during focus
-              }}
-            />
-          </div>
-        </div>
+      
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Menubar
-
+export default Menubar;

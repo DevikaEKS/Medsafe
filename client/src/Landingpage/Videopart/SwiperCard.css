@@ -15,17 +15,3 @@
 }
 
 
-.swiper-button-next, .swiper-button-prev {
-     /* Adjust the arrow color */
-    font-size: 14px;  /* Adjust the arrow size */
-    z-index: 10;  /* Ensure they are above the Swiper */
-  }
-  
-  .swiper-button-prev {
-    left: 50px; /* Position left arrow */
-  }
-  
-  .swiper-button-next {
-    right: 50px; /* Position right arrow */
-  }
-

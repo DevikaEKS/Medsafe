@@ -6,7 +6,7 @@ export const servicesData = [
     {
         id: 1,
         title: "Drug Safety Services",
-        description: "With in-depth expertise of safety reporting in clinical studies and post-marketing surveillance, Oviya MedSafe provides comprehensive global drug safety services. From individual customized stand-alone services to diverse complex offerings, Oviya MedSafe provides solutions specific to the requirements of our clients.",
+        description: "Oviya MedSafe offers comprehensive outsourced Drug Safety services designed to support the entire lifecycle of Pharmacovigilance activities. With expertise in both post-marketing safety monitoring and clinical trial safety, we provide customized solutions tailored to meet the specific needs of our clients. From the management of Individual Case Safety Reports (ICSRs) to regulatory compliance with risk management plans, our services ensure seamless integration of safety practices across global markets. Whether it is signal detection, aggregate report writing, or local regulatory support, Oviya MedSafe helps organizations navigate the complexities of drug safety while ensuring patient safety and compliance at every stage.",
         image_id: S1,
         alt:"Drug Safety Solutions - Oviya MedSafe",
         tit:"Comprehensive Drug Safety Solutions"
@@ -15,7 +15,7 @@ export const servicesData = [
     {
         id: 1,
         title: "Pharmacovigilance Consulting",
-        description: "Oviya MedSafe offers comprehensive global pharmacovigilance consulting solutions through regulatory compliance, higher productivity and strategic drug safety outcomes. Oviya MedSafe has the broad-based experience in pharmacovigilance domain to help you address product safety concerns in a confident, proactive manner, and operating experience to provide unparalleled support to our clients.",
+        description: "Oviya MedSafe provides comprehensive global Pharmacovigilance Consulting services designed to ensure regulatory compliance, enhance productivity, and achieve strategic Drug Safety outcomes. With extensive expertise across the Pharmacovigilance domain, Oviya MedSafe empowers its clients to address Product Safety concerns confidently and proactively. Whether it is establishing robust systems, supporting audit readiness, leveraging technology and AI, or deploying specialized staff, we deliver unparalleled, tailored solutions to meet your unique needs.",
         image_id: S2,
         alt:"Pharmacovigilance Consulting Services",
         tit:"Trusted Pharmacovigilance Consulting Services"
@@ -24,7 +24,7 @@ export const servicesData = [
     {
         id: 1,
         title: "Strategic Partnerships",
-        description: "Oviya MedSafe strongly believes strategic partnership as successful business tool with significant and sustainable value for all the parties in the alliance. Oviya MedSafe comes from rich background of entrepreneurship with 50 years of industry-leading knowledge in healthcare, education, engineering, and management domains. We understand better the competitive advantage in bringing technologies together across industries, engaging client’s needs, and harnessing collaborative knowledge of innovation. Our expertise in engagement strategies lies in flexibility and scalability of mutual individual needs of customers.",
+        description: "At Oviya MedSafe, we believe in the power of strategic partnerships to create significant, sustainable value for all parties involved. Leveraging our extensive network of industry connections and alliances, we are able to offer a range of services that complement our core Pharmacovigilance expertise. These partnerships allow us to provide clients with solutions outside the traditional Pharmacovigilance domain, yet closely aligned with it. <br/><br/>With deep roots in the healthcare, education, engineering, and management sectors, we understand the importance of combining expertise across industries to meet the evolving needs of our clients. Our strategic alliances enable us to offer flexible and scalable solutions, while maintaining a focus on delivering high-quality services tailored to the unique needs of each partner.",
         image_id: S3,
         alt:"Strategic partnerships facilitated by Oviya MedSafe.",
         tit:"Strategic Partnerships - Collaborative Alliances for Enhanced Drug Safety."

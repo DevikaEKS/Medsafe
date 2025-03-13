@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Adminblog.css";
@@ -7,42 +6,46 @@ import { FaUserCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
-
 function Adminblog() {
   const [blogs, setBlogs] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categoryId, setCategoryId] = useState(null);
+  const[error,setError]=useState("");
   const navigate = useNavigate();
+
   const {id} = useParams();
 
+  const userRole = localStorage.getItem("userRole");
 
 // GET LOGIC
   useEffect(() => {
+
+    if (userRole !== "1") {
+      navigate("/medsafelogin"); // Redirect if not an admin
+    }
     // Fetch all news from the backend
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://192.168.253.110:5000/api/news');
+        const response = await fetch('https://oviyamedsafe.com/api/news');
         if (response.ok) {
           const data = await response.json();
           setBlogs(data);
           setFilteredBlogs(data);
         } else {
-          setError('Failed to fetch courses');
+          setError('Failed to fetch News');
         }
       } catch (error) {
-        setError('An error occurred while fetching courses');
+        setError('An error occurred while fetching News');
       } 
     };
     fetchCourses();
-  }, []);
+  }, [userRole, navigate]);
 
   //DELETE LOGIC
   const handleDeleteBlog = async (blogId) => {
     try {
-      const response = await fetch(`http://192.168.253.110:5000/api/news/${blogId}`, {
+      const response = await fetch(`https://oviyamedsafe.com/api/news/${blogId}`, {
         method: 'DELETE',
       });
 
@@ -51,18 +54,17 @@ function Adminblog() {
       if (response.ok) {
         setBlogs(blogs.filter((blog) => blog.id !== blogId));
         setFilteredBlogs(filteredBlogs.filter((blog) => blog.id !== blogId));
-        toast.success('Course deleted successfully.');
+        toast.success('News deleted successfully.');
       } else {
         const data = await response.json();
-        toast.error(data.message || 'Failed to delete course.');
+        toast.error(data.message || 'Failed to delete News.');
       }
     } catch (error) {
-      console.error('Error deleting course:', error);
-      toast.error('An error occurred while deleting the course.');
+      console.error('Error deleting News:', error);
+      toast.error('An error occurred while deleting the News.');
     }
   };
-
-  console.log(blogs);
+console.log(blogs);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -87,7 +89,13 @@ function Adminblog() {
     }
   };
 
-  const handleAddBlogClick = () => navigate(`/addblog`);
+  const handleAddBlogClick = () => navigate(`/adminview/addblog`);
+  const handleAddVideoClick = () => navigate(`/adminview/addvideo`);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userRole");
+    navigate("/");
+  };
 
   const handleUpdateClick = (blogId) => {
     navigate(`/updateblog/${blogId}`);
@@ -101,13 +109,12 @@ function Adminblog() {
       return;
     }
 
-
     // New publish status (toggle the current status)
     const newPublishStatus = !blog.publish;
 
 
     try {
-      const response = await fetch(`http://192.168.253.110:5000/api/news/${id}/publish`, {
+      const response = await fetch(`https://oviyamedsafe.com/api/news/${id}/publish`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -171,8 +178,15 @@ function Adminblog() {
             </button>
 
             <button
+              className="btn addbtn ms-3 mb-2 mb-md-0"
+              onClick={handleAddVideoClick}
+            >
+              <FaPlus /> Add Video
+            </button>
+
+            <button
               className="btn logoutbtn mb-2 mb-md-0 mx-3"
-              onClick={() => navigate("/")}
+              onClick={handleLogout}
             >
               <FaUserCircle style={{fontSize: "20px"}} className="mx-2" />
               Logout
@@ -186,7 +200,7 @@ function Adminblog() {
           <div key={blog.id} className="col-12 col-sm-6 col-lg-4 my-1">
             <div className="card shadowcard my-4 position-relative h-100">
               <img
-                src={`http://192.168.253.110:5000/uploads/${blog.image}`}
+                src={`https://oviyamedsafe.com/api/uploads/${blog.image}`}
                 alt={blog.news_title}
                 className="card-img-top p-0 m-0"
               />
@@ -213,8 +227,7 @@ function Adminblog() {
               Delete <MdDelete className="mx-1" />
               </button>
                 </div>
-              </div>
-              
+              </div>  
             </div>
           </div>
         ))}

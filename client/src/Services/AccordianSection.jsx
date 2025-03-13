@@ -1,18 +1,19 @@
+
+
 import { useState } from "react";
 import { accordianData } from "../utils/services/accordianData";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import TOP from "../assets/services/topgraysvg.png";
 import BOTTOM from "../assets/services/bottomgraysvg.png";
-import './services.css';
-
+import './Services.css';
 
 const AccordianSection = ({ index }) => {
   const [expandedItemId, setExpandedItemId] = useState(null);
 
   const clickHandle = (id) => {
-    // Toggle the expanded state for the clicked item
     setExpandedItemId((prevId) => (prevId === id ? null : id));
   };
+
   const currentIndex = index === 0 ? "serviceOne" : "serviceTwo";
 
   return (
@@ -35,16 +36,21 @@ const AccordianSection = ({ index }) => {
           return (
             <div
               key={item.id}
-              className="d-flex flex-column border-bottom py-3 px-4 cursor-pointer"
-              onClick={() => clickHandle(item.id)}
-              style={{ minHeight: "80px",  borderColor: "var(--plus)", borderWidth: "1px", borderStyle: "solid" }}
+              className="d-flex flex-column border-bottom py-3 px-4"
+              style={{ 
+                minHeight: "80px",  
+                borderColor: "var(--subhead2-color)", 
+                borderWidth: "1px", 
+                borderStyle: "solid" 
+              }}
             >
               <div className="row d-flex align-items-center justify-content-center">
                 {/* Icon Section: 1 grid */}
                 <div className="col-1"> 
                   <div
-                    className="rounded-circle d-flex align-items-center justify-content-center bg-black "
-                    style={{ width: "36px", height: "36px", fontSize: "17px",  color: "var(--plus)" }}
+                    className="rounded-circle d-flex align-items-center justify-content-center bg-black"
+                    style={{ width: "36px", height: "36px", fontSize: "17px", color: "var(--subhead2-color)", cursor: "pointer" }}
+                    onClick={() => clickHandle(item.id)} // Click only on icon
                   >
                     {isExpanded ? <FaMinus /> : <FaPlus />}
                   </div>
@@ -53,32 +59,32 @@ const AccordianSection = ({ index }) => {
                 {/* Title Section: 11 grid */}
                 <div className="col-11">
                   <h1
-                    className="text-capitalize acc-text-pad"
-                    style={{ fontSize: "20px", color: "var(--plus)" }}
+                    className="acc-text-pad"
+                    style={{ fontSize: "20px", color: "var(--subhead2-color)", cursor: "pointer" }}
+                    onClick={() => clickHandle(item.id)} // Click only on heading
                   >
                     {item.title}
                   </h1>
-                  
                 </div>
-                {/* Display content only for the expanded item */}
+
+                {/* Content Section: Expands when active */}
                 <div
-                    className={`ps-4 row overflow-hidden transition-all col-11`}
+                  className={`ps-4 row overflow-hidden transition-all col-11`}
+                  style={{
+                    maxHeight: isExpanded ? "1000px" : "0",
+                    transition: "max-height 0.3s ease",
+                  }}
+                >
+                  <p
+                    className="mt-3 text-muted"
                     style={{
-                      maxHeight: isExpanded ? "500px" : "0",
-                      transition: "max-height 0.3s ease",
+                      fontSize: "15px",
+                      lineHeight: "1.7",
+                      textAlign: "justify",
                     }}
-                  >
-                    <p
-                      className="mt-3 text-muted"
-                      style={{
-                        fontSize: "15px",
-                        lineHeight: "1.7",
-                        textAlign: "justify",
-                      }}
-                    >
-                      {item.content}
-                    </p>
-                  </div>
+                    dangerouslySetInnerHTML={{ __html: item.content }}
+                  />
+                </div>
               </div>
             </div>
           );
@@ -115,6 +121,3 @@ const AccordianSection = ({ index }) => {
 };
 
 export default AccordianSection;
-
-
-

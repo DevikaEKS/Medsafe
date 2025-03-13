@@ -1,199 +1,130 @@
-// import React from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import 'swiper/css/autoplay';
-// import { Pagination, Autoplay } from 'swiper/modules';
-
-// export default function SwiperCard3D() {
-//   const videos = [
-//     "https://www.youtube.com/embed/iifT9X6uIyA?rel=0&modestbranding=1&controls=1",
-//     "https://www.youtube.com/embed/JKqM9XkZ17k?rel=0&modestbranding=1&controls=1",
-//     "https://www.youtube.com/embed/dveQrSg4HQU?rel=0&modestbranding=1&controls=1",
-//     "https://www.youtube.com/embed/jpneMtcNM5E?rel=0&modestbranding=1&controls=1",
-//     "https://www.youtube.com/embed/R6lvatKwFMM?rel=0&modestbranding=1&controls=1",
-//     "https://www.youtube.com/embed/-BhjTRU20dw?rel=0&modestbranding=1&controls=1",
-//   ];
-
-//   // Function to extract video ID from YouTube embed URL
-//   const getVideoId = (url) => {
-//     const regex = /(?:youtube\.com\/(?:[^\/]+\/[^\/]+\/|(?:v|e(?:mbed)?)\/|\S+\/\S+\/)([A-Za-z0-9_-]{11}))|(?:youtu\.be\/([A-Za-z0-9_-]{11}))/;
-//     const match = url.match(regex);
-//     return match ? match[1] || match[2] : null;
-//   };
-
-//   return (
-//     <div className='pb-5'>
-//       <h1 className='subhead2 py-3'>Video Library</h1>
-//       <Swiper
-//         spaceBetween={10} // Minimized space for mobile
-//         pagination={{
-//           clickable: true,
-//         }}
-//         autoplay={{
-//           delay: 3500, // Delay between slides in milliseconds
-//           disableOnInteraction: false, // Continue autoplay after user interaction
-//         }}
-//         centeredSlides={true} // Center slides
-//         breakpoints={{
-//           // For small screens (e.g., mobile)
-//           0: {
-//             slidesPerView: 1, // Show 1 slide fully
-//             spaceBetween: 0, // No gap between slides
-//           },
-//           // For medium screens (e.g., tablets)
-//           768: {
-//             slidesPerView: 2, // Show 2 slides
-//             spaceBetween: 15,
-//           },
-//           // For large screens (e.g., desktops)
-//           1024: {
-//             slidesPerView: 3, // Show 3 slides
-//             spaceBetween: 20,
-//           },
-//         }}
-//         modules={[Pagination, Autoplay]}
-//         className="mySwiper"
-//       >
-//         {videos.map((video, index) => {
-//           const videoId = getVideoId(video); // Extract video ID for the YouTube link
-
-//           return (
-//             <SwiperSlide key={index} className="swiper-slide-custom">
-//               <a
-//                 href={`https://www.youtube.com/watch?v=${videoId}`}
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//               >
-//                 <iframe
-//                   className="responsive-iframe"
-//                   src={video}
-//                   title={`Video ${index + 1}`}
-//                   frameBorder="0"
-//                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-//                   referrerPolicy="strict-origin-when-cross-origin"
-//                   allowFullScreen
-//                 ></iframe>
-//               </a>
-//             </SwiperSlide>
-//           );
-//         })}
-//       </Swiper>
-
-//       <style jsx>{`
-//         .swiper-slide-custom {
-//           display: flex;
-//           justify-content: center;
-//           align-items: center;
-//           width: 100%; /* Occupy full width */
-//         }
-
-//         .responsive-iframe {
-//           width: 100%;
-//           padding:"40px 0px"; /* Make iframe take full width */
-//           height: auto; /* Maintain aspect ratio */
-//           margin: 10px;
-//         }
-//       `}</style>
-//     </div>
-//   );
-// }
-
-
-
-
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 
 export default function SwiperCard3D() {
-  const videos = [
-    "https://www.youtube.com/embed/iifT9X6uIyA?rel=0&modestbranding=1&controls=1",
-    "https://www.youtube.com/embed/JKqM9XkZ17k?rel=0&modestbranding=1&controls=1",
-    "https://www.youtube.com/embed/dveQrSg4HQU?rel=0&modestbranding=1&controls=1",
-    "https://www.youtube.com/embed/jpneMtcNM5E?rel=0&modestbranding=1&controls=1",
-    "https://www.youtube.com/embed/R6lvatKwFMM?rel=0&modestbranding=1&controls=1",
-    "https://www.youtube.com/embed/-BhjTRU20dw?rel=0&modestbranding=1&controls=1",
-  ];
 
-  // Function to extract video ID from YouTube embed URL
-  const getVideoId = (url) => {
-    const regex = /(?:youtube\.com\/(?:[^\/]+\/[^\/]+\/|(?:v|e(?:mbed)?)\/|\S+\/\S+\/)([A-Za-z0-9_-]{11}))|(?:youtu\.be\/([A-Za-z0-9_-]{11}))/;
-    const match = url.match(regex);
-    return match ? match[1] || match[2] : null;
+  const [videos, setVideos] = useState([]);
+  const swiperRef = useRef(null);
+  const iframesRef = useRef([]);
+
+  const fetchVideos = async () => {
+    try {
+      const response = await fetch("https://oviyamedsafe.com/api/videos");
+      const finaldata = await response.json();
+      const filteredVideos = finaldata.videos.filter(video => video.publish === 1);
+      setVideos(filteredVideos.reverse()); // Display latest videos first
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  const playFullscreen = (iframe, index) => {
+    swiperRef.current?.autoplay.stop();
+    iframesRef.current.forEach((frame, i) => {
+      if (frame && i !== index) {
+        frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      }
+    });
+
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) {
+      iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
   };
 
   return (
-    <div className="pb-5">
-      <h1 className="subhead2 py-3">Video Library</h1>
-      <Swiper
-        spaceBetween={10} // Minimized space for mobile
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 3500, // Delay between slides in milliseconds
-          disableOnInteraction: false, // Continue autoplay after user interaction
-        }}
-        centeredSlides={false} // Don't center the slides; start from left
+    <div className="pb-5 relative">
+      <h1 className="subhead2 py-3 text-center">Video Library</h1>
+      {videos.length > 0 ?<Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        spaceBetween={10}
+        centeredSlides={false}
+        navigation={true}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         breakpoints={{
-          0: {
-            slidesPerView: 1, // Show 1 slide fully
-            spaceBetween: 0, // No gap between slides
-          },
-          768: {
-            slidesPerView: 2, // Show 2 slides
-            spaceBetween: 15,
-          },
-          1024: {
-            slidesPerView: 3, // Show 3 slides
-            spaceBetween: 20,
-          },
+          0: { slidesPerView: 1, spaceBetween: 0 },
+          768: { slidesPerView: 2, spaceBetween: 15 },
+          1024: { slidesPerView: 3, spaceBetween: 20 },
         }}
-        modules={[Pagination, Autoplay]}
+        modules={[Navigation, Autoplay]}
         className="mySwiper"
+        onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+        onMouseLeave={() => swiperRef.current?.autoplay.start()}
       >
-        {videos.map((video, index) => {
-          const videoId = getVideoId(video); // Extract video ID for the YouTube link
-
-          return (
-            <SwiperSlide key={index} className="swiper-slide-custom">
-              <a
-                href={`https://www.youtube.com/watch?v=${videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <iframe
-                  className="responsive-iframe"
-                  src={video}
-                  title={`Video ${index + 1}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </a>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+        {videos.map((video, index) => (
+          <SwiperSlide key={index} className="swiper-slide-custom">
+            <iframe
+              className="responsive-iframe"
+              src={`${video.video}`}
+              title={`Video ${index + 1}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              ref={(el) => (iframesRef.current[index] = el)}
+              onClick={(e) => playFullscreen(e.target, index)}
+              onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+              onMouseLeave={() => swiperRef.current?.autoplay.start()}
+            ></iframe>
+          </SwiperSlide>
+        ))}
+      </Swiper> : <p className="text-center">No videos available</p>}
 
       <style jsx>{`
         .swiper-slide-custom {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100%; /* Occupy full width */
+          width: 100%;
         }
 
         .responsive-iframe {
           width: 100%;
-          height: 250px; /* Define the height you want */
+          height: 250px;
           margin: 10px;
-          border-radius: 8px; /* Optional for rounded corners */
+          border-radius: 8px;
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .responsive-iframe:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Custom Navigation Buttons */
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: white !important;
+          background: rgba(0, 0, 0, 0.7);
+          padding: 15px;
+          border-radius: 50%;
+          transition: background 0.3s ease-in-out;
+          width: 50px;
+          height: 50px;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+          background: rgba(0, 0, 0, 0.9);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 20px;
+          font-weight: bold;
         }
       `}</style>
     </div>

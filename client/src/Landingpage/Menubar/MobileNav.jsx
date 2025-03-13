@@ -23,7 +23,7 @@ const MobileNav = ({setHamToggle}) => {
                     className="custom-link text-black"
                     onClick={handleDropdown1} // Toggle dropdown on click
                 >
-                    WHO ARE WE <span><IoMdArrowDropdown /></span>
+                    WHO WE ARE<span><IoMdArrowDropdown /></span>
                 </div>
 
                 {/* Dropdown Menu */}

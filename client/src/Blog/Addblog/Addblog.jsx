@@ -14,8 +14,16 @@ function Addblog() {
   const [title, setTitle] = useState(""); // State for blog title
   const [shortTitle, setShortTitle] = useState("");
   const [image, setImage] = useState(null);
-  const [selectedDate,setSelectedDate]=useState("") 
+  const [selectedDate,setSelectedDate]=useState("")
+  const userRole = localStorage.getItem("userRole"); 
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+      if (userRole !== "1") {
+        navigate("/medsafelogin"); // Redirect if not an admin
+      }
+    }, [userRole, navigate]);
 
 
   const modules = {
@@ -46,7 +54,7 @@ function Addblog() {
     formData.append('news_content', content);
   
     try {
-      const response = await fetch('http://localhost:5000/api/news', {
+      const response = await fetch('https://oviyamedsafe.com/api/news', {
         method: 'POST',
         body: formData, 
       });
@@ -81,8 +89,7 @@ function Addblog() {
       toast.error('An error occurred. Please try again.');
     }
   };
-
-
+                                                                                                                                                                                                                                                                
   return (
     <div className="container bgblogs">
       <div className="row mx-1 mx-md-3">

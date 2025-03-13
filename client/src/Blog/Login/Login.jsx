@@ -1,18 +1,20 @@
-
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
+import { RxEyeOpen } from "react-icons/rx";
+import { GoEyeClosed } from "react-icons/go";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [showpassword,setShowpassword]=useState(false);
   const navigate = useNavigate();
-
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -20,7 +22,6 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     let isValid = true;
     setEmailError("");
     setPasswordError("");
@@ -46,17 +47,20 @@ function Login() {
       return;
     }                                                                                                                                                                                                                           
 
-    axios.post('http://localhost:5000/api/auth/login', {
+    axios.post('https://oviyamedsafe.com/api/auth/login', {
       email,
       password,
     }).then(response => {
+
+      localStorage.setItem("userRole", response.data.user.id); // Store role in localStorage
+      
       if(response.data.message==="Login successful"){
         if(response.data.user.id===1){
 
           window.location.href='/adminview'
         }
         else if(response.data.user.id===2){
-          window.location.href='/adminview'
+          window.location.href='/admin'
         }
         toast.success("Login successful");
       }
@@ -74,8 +78,7 @@ function Login() {
   return (
     <div
       className="d-flex justify-content-center align-items-center"
-      style={{ backgroundColor: "#f8f9fa" }}
-    >
+      style={{ backgroundColor: "#f8f9fa" }}>
       <div
         className="card p-5 formbg rounded-5 border-0 m-3"
         style={{ borderRadius: "10px" }}
@@ -85,7 +88,7 @@ function Login() {
           className="text-center mb-4 loginhead py-2"
           style={{ fontSize: "1.5rem" }}
         >
-          Welcome to Oviya Medsafe
+          Welcome to Oviya MedSafe
         </h1>
         <form onSubmit={handleLogin}>
           <div className="mb-3">
@@ -100,16 +103,49 @@ function Login() {
             />
             {emailError && <p className="text-danger mt-1">{emailError}</p>}
           </div>
-          <div className="mb-3">
+          
+          {/* <div className="mb-3 position-relative">
             <label className="form-label text-light">Password</label>
             <input
-              type="password"
+              type={setShowpassword? "text" : "password"}
               className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter Password"
               required
             />
+             <span
+                          className="position-absolute end-0 top-50 translate-middle-y me-3 mt-2"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setShowpassword(!showpassword)}>
+                          {showpassword ? <RxEyeOpen size={20} color="black" /> : <GoEyeClosed size={20} color="black" />}
+                        </span>
+            {passwordError && <p className="text-danger mt-1">{passwordError}</p>}
+          </div>
+          {loginError && <p className="text-danger mt-1">{loginError}</p>} */}
+
+
+<div className="mb-3 position-relative">
+            <label className="form-label text-light">Password</label>
+            <input
+              type={showpassword ? "text" : "password"}
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter Password"
+              required
+            />
+            <span
+              className="position-absolute end-0 top-50 translate-middle-y me-3 mt-3"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowpassword(!showpassword)}
+            >
+              {showpassword ? (
+                <RxEyeOpen size={20} color="black" />
+              ) : (
+                <GoEyeClosed size={20} color="black" />
+              )}
+            </span>
             {passwordError && <p className="text-danger mt-1">{passwordError}</p>}
           </div>
           {loginError && <p className="text-danger mt-1">{loginError}</p>}
@@ -117,6 +153,7 @@ function Login() {
             Login
           </button>
         </form>
+        <p className="text-center pt-4 text-decoration-none"><Link to="/forgot-password" className="text-light fw-bold text-decoration-none">Forgot Password ?</Link></p>
       </div>
       <ToastContainer />
     </div>

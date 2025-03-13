@@ -1,5 +1,5 @@
 import { strategyData } from '../utils/services/accordianData';
-import './services.css'
+import './Services.css'
 
 const StrategySection = () => {
   return (
@@ -8,7 +8,9 @@ const StrategySection = () => {
         className="text-center font-weight-bold mb-4 main-title heading-text"
         style={{color: "var(--heading)" }}
       >
-        Oviya MedSafe has formed strong strategic alliances where we can provide 
+
+
+Oviya MedSafe has formed strong strategic alliances that enable us to provide  
         <br/> the following services:
       </h1>
       <div className="d-flex flex-wrap justify-content-center align-items-center w-75 mt-4">

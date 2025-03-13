@@ -76,6 +76,8 @@ font-size: 57px;
     max-height: 350px;
   }
 
+  
+
   .pl-10 {
     padding-left: 25px;
   }
@@ -94,7 +96,7 @@ body, html {
   padding: 0;
   width: 100%;
   overflow-x: hidden; 
-  user-select: none;
+  /* user-select: none; */
   font-family: 'Heebo', sans-serif;
 }
 
@@ -128,7 +130,12 @@ img {
 
 
 
-
+@media (max-width:1024px){
+  .img-size {
+    max-width: 200px;
+    max-height: 200px;
+  }  
+}
 
 
 

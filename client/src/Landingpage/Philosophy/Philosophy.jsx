@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import './Philosophy.css'
 import bulb from '../../assets/bulb.png';
@@ -22,14 +20,14 @@ const Philosophy = () => {
 
             {/* Content */}
             <div className="image-container">
-              <img src={bulb} alt="Our Vision is leading Pharmacovigilance Consulting via Global Partnerships." title="Oviya MedSafe's vision to lead in pharmacovigilance consulting through strategic global partnerships."/>
+              <img src={bulb} alt="Our Vision is leading Pharmacovigilance Consulting via Global Partnerships." title="Oviya MedSafe's vision to lead in Pharmacovigilance consulting through strategic global partnerships."/>
             </div>
             <div className="title-container">
               <h1>Vision</h1>
             </div>
             <div className="description-container">
               <p>
-                To become a leader in pharmacovigilance consulting services by strategically partnering with global pharmaceutical companies.
+                To become a leader in Pharmacovigilance consulting services by strategically partnering with global pharmaceutical companies.
               </p>
             </div>
         </div>
@@ -49,9 +47,9 @@ const Philosophy = () => {
             </div>
             <div className="description-container">
               <p>
-              To inculcate a pharmacovigilant culture and proactively support
+              To inculcate a Pharmacovigilant culture and proactively support
               the growth of drug safety practices across the globe. We will
-              achieve this by integrating our expertise in pharmacovigilance
+              achieve this by integrating our expertise in Pharmacovigilance
               with our medical experience, ensuring compliance to the dynamic
               regulatory frameworks and deploying the most appropriate
               technology.
@@ -66,7 +64,7 @@ const Philosophy = () => {
 
             {/* Content */}
             <div className="image-container">
-              <img src={diamond} alt="Oviya MedSafe's core values: passion for pharmacovigilance, continuous learning, capability building, and business integrity.
+              <img src={diamond} alt="Oviya MedSafe's core values: passion for Pharmacovigilance, continuous learning, capability building, and business integrity.
 " title='Our Values: Passion, Learning, Capability, Integrity.'/>
             </div>
             <div className="title-container">
@@ -88,3 +86,5 @@ const Philosophy = () => {
 }
 
 export default Philosophy
+
+

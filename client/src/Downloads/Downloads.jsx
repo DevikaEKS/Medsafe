@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import date from '../assets/Calendar.png';
 import "./Downloads.css";
 import DownloadForm from './DownloadForm';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Downloads = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -18,11 +18,14 @@ const Downloads = () => {
   return (
     <div className='container-fluid text-justify text-light'>
       <Helmet>
-        <title>Pharmacovigilance Resources | Download Oviya MedSafe’s Expert Insights
-        </title>
-        <meta name="description" content="Access a variety of pharmacovigilance resources and publications by Oviya MedSafe, offering insights into drug safety practices and regulatory compliance." />
-        <meta name="keywords" content="downloads, Oviya MedSafe resources, pharmacovigilance publications, drug safety insights, regulatory compliance materials" />
-        <link rel="canonical" href="https://www.oviyamedsafe.com/downloads" />
+        <title>Pharmacovigilance Resources | Expert Drug Safety Insights from Oviya MedSafe</title>
+        <meta name="description" content="Explore Oviya MedSafe’s exclusive pharmacovigilance resources, including whitepapers, publications, and compliance guides, designed to support global drug safety and regulatory excellence." />
+        <meta name="keywords" content="pharmacovigilance downloads, Oviya MedSafe resources, drug safety publications, regulatory compliance guides, pharmacovigilance whitepapers, global drug safety insights" />
+        <link rel="canonical" href="https://oviyamedsafe.com/downloads" />
+        <meta property="og:title" content="Pharmacovigilance Resources | Download Oviya MedSafe’s Expert Insights" />
+        <meta property="og:image" content="https://www.oviyamedsafe.com/mainlogo.png" />
+        <meta property="og:url" content="https://www.oviyamedsafe.com/" />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className='col mx-1 mx-md-5'>
         <h1 className='subhead2 py-4'>Downloads</h1>
@@ -34,7 +37,7 @@ const Downloads = () => {
                 {/* Title */}
                 <div className='width-heading'>
                   <h5 className="card-title card-title-size">
-                    Oviya MedSafe – Convincing Leaders to Constitute Pharmacovigilance
+                    Oviya MedSafe – eBrochure - 23 OCT 2024
                   </h5>
                 </div>
                 {/* Button */}
@@ -56,7 +59,7 @@ const Downloads = () => {
                     className='imgwidth'
                   />
                 </div>
-                <div>March, 2023</div>
+                <div>January, 2025</div>
               </div>
             </div>
 
@@ -72,7 +75,7 @@ const Downloads = () => {
             >
               {/* Form content */}
               {/* <DownloadForm /> */}
-              <DownloadForm/>
+              <DownloadForm fileId="file1"/>
               
              
             </div>
@@ -84,7 +87,7 @@ const Downloads = () => {
               <div className='d-flex align-items-center justify-content-between'>
                 <div className='width-heading'>
                   <h5 className="card-title text-left">
-                  Oviya MedSafe - Accomplishing Pharmacovigilance Equilibrium Since 2012
+                    Oviya MedSafe - Capabilities & Track Record - 09 OCT 2024
                   </h5>
                 </div>
                 <div>
@@ -105,7 +108,7 @@ const Downloads = () => {
                     className='imgwidth'
                   />
                 </div>
-                <div>February, 2023</div>
+                <div>January, 2025</div>
               </div>
             </div>
 
@@ -119,58 +122,14 @@ const Downloads = () => {
               }}
               ref={(el) => (contentRefs.current[1] = el)}
             >
-                 <DownloadForm/>
+                 <DownloadForm fileId="file2"/>
               {/* Form content */}
               {/* <DownloadForm /> */}
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="card custom-card mb-3">
-            <div className="card-body d-flex flex-column">
-              <div className='d-flex align-items-center justify-content-between'>
-                <div className='width-heading'>
-                  <h5 className="card-title">
-                  Oviya MedSafe – Perfecting Professionalism in Pharmacovigilance
-                  </h5>
-                </div>
-                <div>
-                  <button
-                    className='custom-btn btn btn-primary'
-                    onClick={() => toggleAccordion(2)} // Pass the index 2 for the third accordion
-                  >
-                    Download PDF
-                  </button>
-                </div>
-              </div>
 
-              <div className='d-flex align-items-center mt-0'>
-                <div style={{ paddingRight: '10px' }}>
-                  <img
-                    src={date}
-                    alt='date'
-                    className='imgwidth'
-                  />
-                </div>
-                <div>January, 2023</div>
-              </div>
-            </div>
-
-            {/* Accordion Content */}
-            <div
-              className="accordion-content"
-              style={{
-                maxHeight: activeIndex === 2 ? `${contentRefs.current[2].scrollHeight}px` : '0',
-                overflow: 'hidden',
-                transition: 'max-height 0.3s ease',
-              }}
-              ref={(el) => (contentRefs.current[2] = el)}
-            >
-                 <DownloadForm/>
-              {/* Form content */}
-              {/* <DownloadForm /> */}
-            </div>
-          </div>
+        
 
         </div>
       </div>
